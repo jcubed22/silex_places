@@ -7,10 +7,26 @@
     <div class="container">
         <h1>You added a place!</h1>
         <p>{{ newplace.getCity }}</p>
-        <p>Year: {{ newplace.getYear }}</p>
-        <p>{{ newplace.getLength }} month(s)</p>
+        <p>Year:
+            {% if newplace.getYear <= 2015 %}
+                {{ place.getYear }}
+            {% else %}
+                (Please enter a valid year)
+            {% endif %}
+        </p>
+        <p>{{ newplace.getLength}}
+            {% if newplace.getLength == 1 %}
+                month
+            {% else %}
+                months
+            {% endif %}
+        </p>
         <p>Rank: {{ newplace.getRank }}</p>
-        <p><img src="{{ newplace.getImage }}" width="500px"></img></p><br>
+        <p>{% if newplace.getImage is empty %}
+            No image provided.
+           {% else %}
+           <img src="{{ newplace.getImage }}" width="500px"></img>
+           {% endif %}</p><br>
         <p><a href='/'>View the list of places you've visited</a></p>
     </div>
 </body>

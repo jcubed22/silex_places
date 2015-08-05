@@ -12,10 +12,29 @@
             <ul>
                 {% for place in places %}
                     <li>{{ place.getCity }}
-                        <ul><li>Year: {{ place.getYear}}</li>
-                            <li>{{ place.getLength}} month(s)</li>
+                        <ul><li>Year:
+                            {% if place.getYear <= 2015 %}
+                                {{ place.getYear }}
+                            {% else %}
+                                (Please enter a valid year)
+                            {% endif %}
+                        </li>
+                            <li>{{ place.getLength}}
+                                {% if place.getLength == 1 %}
+                                    month
+                                {% else %}
+                                    months
+                                {% endif %}
+                            </li>
                             <li>Your Rating: {{ place.getRank}}</li>
-                            <li><img src="{{ place.getImage }}" width="250px"></img></li>
+                            <li>
+                                {% if place.getImage is empty %}
+                                    No image provided.
+                                {% else %}
+                                <img src="{{ place.getImage }}" width="250px">
+                                </img>
+                                {% endif %}
+                            </li>
                         </ul>
                     </li>
 
@@ -54,12 +73,15 @@
                 <label for='image_path'>Image URL of the Place</label>
                 <input id='image_path' name='image_path' class="form-control" type='text'>
             </div>
-
-            <button type='submit' class="btn-primary">Add Place</button>
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type='submit' class="btn btn-info">Add Place</button>
+                </div>
         </form>
 
         <form action='/delete_places' method='post'>
-            <button type='submit' class="btn-danger">Clear</button>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type='submit' class="btn btn-danger">Clear</button>
+            </div>
         </form>
     </div>
 </body>

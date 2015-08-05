@@ -23,12 +23,7 @@
 
         function setYear($new_year)
         {
-            $user_year = (integer) $new_year;
-            if ($user_year >= 1900 && $user_year <= 2015) {
-                $this->year = $user_year;
-            } else {
-                echo "Please enter a valid year.";
-            }
+            $this->year = (integer) $new_year;
         }
 
         function setLength($new_length)
