@@ -7,6 +7,10 @@
     <div class="container">
         <h1>You added a place!</h1>
         <p>{{ newplace.getCity }}</p>
+        <p>Year: {{ newplace.getYear }}</p>
+        <p>{{ newplace.getLength }} month(s)</p>
+        <p>Rank: {{ newplace.getRank }}</p>
+        <p><img src="{{ newplace.getImage }}" width="500px"></img></p><br>
         <p><a href='/'>View the list of places you've visited</a></p>
     </div>
 </body>
