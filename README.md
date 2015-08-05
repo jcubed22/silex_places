@@ -6,7 +6,7 @@
 
 ## Description
 
-Allows users to create a list that shows places they have been, year they have been, length of stay, their rating, and URL to the places. It allows users to view that list, and then delete said list.
+The app allows users to create a list that shows places they have been, year they have been, length of stay, their rating, and URL to the places. It also let users to view that list, and then delete their created list.
 
 ## Setup
 
